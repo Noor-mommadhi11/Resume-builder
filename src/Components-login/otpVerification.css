@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #ffffff;
+}
+.otp-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    gap:100px;
+    background:#ffffff;
+}
+
+.otp-left img{
+    width:600px;
+    max-width:100%;
+}
+
+.otp-right{
+    width:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.back-btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    font-size:14px;
+    cursor:pointer;
+    margin-bottom:35px;
+}
+
+.back-btn span{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+}
+
+.back-btn .btn-icon-img{
+    display:block;
+}
+
+.lock-circle{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#2563eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+    box-shadow:0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+.lock-icon{
+    font-size:24px;
+    color:#fff;
+}
+
+
+.otp-right h4{
+    font-size:15px;
+    font-weight:600;
+}
+
+.otp-right p{
+    font-size:13px;
+    margin-top:5px;
+    color:#555;
+}
+
+.otp-inputs{
+    display:flex;
+    gap:12px;
+    margin:30px 0 15px;
+}
+
+.otp-inputs input{
+    width:60px;
+    height:50px;
+    background:#ffffff;
+    border:2px solid #b8c4d6;
+    border-radius:10px;
+    text-align:center;
+    font-size:22px;
+    font-weight:600;
+    color:#111827;
+    outline:none;
+    transition:all 0.25s ease;
+    box-shadow:0 3px 10px rgba(15, 23, 42, 0.08);
+}
+
+.otp-inputs input:focus{
+    border-color:#2563eb;
+}
+
+.error-text{
+    width:100%;
+    color:#ff4d4d;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.resend{
+    width:100%;
+    font-size:14px;
+    margin-bottom:25px;
+    padding-left:48px;
+}
+
+.resend span{
+    color:black;
+    cursor:pointer;
+    font-weight:500;
+}
+
+.verify-btn{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.verify-btn:hover{
+    background:#184cc8;
+}
+
+@media(max-width:900px){
+
+.otp-container{
+    flex-direction:column;
+    gap:30px;
+}
+
+.otp-left img{
+    width:420px;
+}
+
+.otp-right{
+    width:100%;
+    max-width:400px;
+}
+
+}
