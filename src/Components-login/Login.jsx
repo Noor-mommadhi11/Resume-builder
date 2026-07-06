@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 import "./Login.css";
 import loginImage from "../assets/login-image.png";
 import googleIcon from "../assets/google.png";
@@ -9,7 +9,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { IoEyeOffOutline } from "react-icons/io5";
 
 
+
   const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +19,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = (e) => {
+ const handleLogin = (e) => {
   e.preventDefault();
 
   setEmailError("");
@@ -25,11 +27,18 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
   let valid = true;
 
+  // Empty email
   if (email.trim() === "") {
     setEmailError("Enter your email address");
     valid = false;
   }
+  // Invalid email
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setEmailError("Enter valid email format");
+    valid = false;
+  }
 
+  // Password
   if (password.trim() === "") {
     setPasswordError("Enter your password");
     valid = false;
@@ -37,9 +46,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
   if (!valid) return;
 
-  
+  navigate("/Ai-resume/login/emailverification");
+ 
 };
-
   return (
     <div className="login-container">
       {/* Left Section */}
@@ -67,7 +76,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
       {/* Right Section */}
 
       <div className="right-section">
-        <form className="login-form" onSubmit={handleLogin}>
+        <form className="login-form" onSubmit={handleLogin} noValidate>
           <h2>
             {passwordError
               ? "Incorrect password"
@@ -82,16 +91,16 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
             <div className="input-box">
               {email === "" && <MdEmail className="input-icon" />}
 
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  setEmailError("");
-                }}
-                className={emailError ? "error-input" : ""}
-              />
+    <input
+  type="text"
+  placeholder="Enter your email address"
+  value={email}
+  onChange={(e) => {
+    setEmail(e.target.value);
+    setEmailError("");
+  }}
+  className={emailError ? "error-input" : ""}
+/>
             </div>
 
             {emailError && (
@@ -187,19 +196,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
           {/* Social */}
 
           <div className="social-login">
-    <a
-    href="https://accounts.google.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+    <a href="https://accounts.google.com/"  target="_blank"  rel="noopener noreferrer" >
     <img src={googleIcon} alt="Google" />
   </a>
 
-  <a
-    href="https://www.linkedin.com/login"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a href="https://www.linkedin.com/login" target="_blank"rel="noopener noreferrer">
     <img src={linkedinIcon} alt="LinkedIn" />
   </a>
 </div>
