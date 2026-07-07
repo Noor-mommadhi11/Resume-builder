@@ -104,8 +104,8 @@ const Signup = () => {
                  onChange={(e) => {
           setEmail(e.target.value);
              setErrors({ ...errors, email: "" });
-  }}
-/>
+            }}
+            />
               </div>
               {errors.email && <span className="error-msg">{errors.email}</span>}
             </div>

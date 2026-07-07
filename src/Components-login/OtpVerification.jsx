@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./OtpVerification.css";
 import verified from "../assets/image 15.png";
-import backIcon from '../assets/arrw.png';
 import { FaLock } from "react-icons/fa";
 
 const OtpVerification = () => {
@@ -63,7 +62,7 @@ const OtpVerification = () => {
     if (enteredOtp === DEFAULT_OTP) {
       setError("");
      
-      navigate("/Ai-resume/login/loginsuccess"); 
+      navigate("/Resume-builder/login/loginsuccess"); 
     } else {
       setError("❗ Invalid OTP. Please check and try again.");
     }
@@ -87,9 +86,7 @@ const OtpVerification = () => {
       {/* Right Section */}
       <div className="otp-right">
         <div className="back-btn" onClick={() => navigate("/Ai-resume/login")} style={{ cursor: 'pointer' }}>
-          
-           <span>            <img src={backIcon} alt="back" className="btn-icon-img" style={{ width: "18px", height: "18px",  }} /> Back to login
-          </span>
+          ← <span>Back to Login</span>
         </div>
 
         <div className="lock-circle">
@@ -100,26 +97,26 @@ const OtpVerification = () => {
         <p>Please try again.</p>
 
         <form onSubmit={handleVerifyOtp} style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-         <div className="otp-inputs">
-  {otp.map((digit, index) => (
-    <input
-      key={index}
-      type="text"
-      maxLength="1"
-      value={digit}
-      className={error ? "otp-error" : ""}
-      ref={(el) => (inputRefs.current[index] = el)}
-      onChange={(e) => handleChange(e.target.value, index)}
-      onKeyDown={(e) => handleKeyDown(e, index)}
-    />
+          <div className="otp-inputs">
+            {otp.map((digit, index) => (
+              <input
+                key={index}
+                type="text"
+                maxLength="1"
+                value={digit}
+                ref={(el) => (inputRefs.current[index] = el)}
+                onChange={(e) => handleChange(e.target.value, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+              />
+            ))}
+          </div>
 
-    
-  ))}
 
-</div>
-
-{error && (<div className="error-text">{error} </div>)}
-
+          {error && (
+            <div className="error-text" style={{ color: "#ef4444", fontWeight: "500", marginTop: "10px" }}>
+              {error}
+            </div>
+          )}
 
           <div className="resend">
             {seconds > 0 ? (

@@ -8,36 +8,42 @@ import CreatePassword from './Components-login/CreatePassword';
 import EmailVerification from './Components-login/EmailVerification';
 import OtpVerification from './Components-login/OtpVerification';
 import LoginSuccess from './Components-login/LoginSuccess';
+import LandingPage from './LandingPage';
 
 
 const router = createBrowserRouter(
   [
     {
-      path: '/Ai-resume/login', 
-      element: <Login />,
+      path: '/Resume-builder',
+      element: <LandingPage />,
     },
-    {
-      path: '/Ai-resume/login/forgotpassword',
-      element: <ForgotPassword />,  
-    },
-    {
-      path: '/Ai-resume/signup',
+     {
+      path: '/Resume-builder/signup',
       element: <Signup />,
     },
     {
-      path: '/Ai-resume/login/createpassword',
+      path: '/Resume-builder/login', 
+      element: <Login />,
+    },
+    {
+      path: '/Resume-builder/login/forgotpassword',
+      element: <ForgotPassword />,  
+    },
+   
+    {
+      path: '/Resume-builder/login/createpassword',
       element: <CreatePassword />
     },
     {
-      path: '/Ai-resume/login/emailverification',
+      path: '/Resume-builder/login/emailverification',
       element: <EmailVerification /> 
     },
     {
-      path: '/Ai-resume/login/emailverification/otpverification',
+      path: '/Resume-builder/login/emailverification/otpverification',
       element: <OtpVerification /> 
     },
     {
-      path: '/Ai-resume/login/loginsuccess',
+      path: '/Resume-builder/login/loginsuccess',
       element: <LoginSuccess /> 
     }
 
