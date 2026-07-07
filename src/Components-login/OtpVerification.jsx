@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./OtpVerification.css";
 import verified from "../assets/image 15.png";
 import { FaLock } from "react-icons/fa";
+import backIcon from '../assets/arrw.png';
 
 const OtpVerification = () => {
   const navigate = useNavigate();
@@ -85,8 +86,10 @@ const OtpVerification = () => {
 
       {/* Right Section */}
       <div className="otp-right">
-        <div className="back-btn" onClick={() => navigate("/Ai-resume/login")} style={{ cursor: 'pointer' }}>
-          ← <span>Back to Login</span>
+        <div className="back-btn" onClick={() => navigate("/Resume-builder/login")} style={{ cursor: 'pointer' }}>
+        <span>  
+           <img src={backIcon} alt="back" className="btn-icon-img" style={{ width: "18px", height: "18px",  }} /> Back to login
+          </span>
         </div>
 
         <div className="lock-circle">
@@ -97,19 +100,23 @@ const OtpVerification = () => {
         <p>Please try again.</p>
 
         <form onSubmit={handleVerifyOtp} style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div className="otp-inputs">
-            {otp.map((digit, index) => (
-              <input
-                key={index}
-                type="text"
-                maxLength="1"
-                value={digit}
-                ref={(el) => (inputRefs.current[index] = el)}
-                onChange={(e) => handleChange(e.target.value, index)}
-                onKeyDown={(e) => handleKeyDown(e, index)}
-              />
-            ))}
-          </div>
+            <div className="otp-inputs">
+  {otp.map((digit, index) => (
+    <input
+      key={index}
+      type="text"
+      maxLength="1"
+      value={digit}
+      className={error ? "otp-error" : ""}
+      ref={(el) => (inputRefs.current[index] = el)}
+      onChange={(e) => handleChange(e.target.value, index)}
+      onKeyDown={(e) => handleKeyDown(e, index)}
+    />
+
+    
+  ))}
+
+</div>
 
 
           {error && (
