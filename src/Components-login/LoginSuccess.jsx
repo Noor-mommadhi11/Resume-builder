@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./LoginSuccess.css";
-
 import loginImage from "../assets/login-success.png";
 import tickImage from "../assets/tick.png";
 import securityImage from "../assets/security.png";

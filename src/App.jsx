@@ -9,6 +9,8 @@ import EmailVerification from './Components-login/EmailVerification';
 import OtpVerification from './Components-login/OtpVerification';
 import LoginSuccess from './Components-login/LoginSuccess';
 import LandingPage from './LandingPage';
+import UserRegRecruiter from './UserRegRecruiter';
+import UserRegCandidate from './UserRegCandidate';
 
 
 const router = createBrowserRouter(
@@ -45,8 +47,15 @@ const router = createBrowserRouter(
     {
       path: '/Resume-builder/login/loginsuccess',
       element: <LoginSuccess /> 
-    }
-
+    },
+    {
+      path: '/Resume-builder/signup/userregrecruiter',
+      element: <UserRegRecruiter /> 
+    },
+    {
+      path: '/Resume-builder/signup/userregcandidate',
+      element: <UserRegCandidate /> 
+    } 
   ],
 );
 
