@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'; 
-import Login from './Components-login/Login';
+import LoginCanditate from './Components-login/LoginCandidate';
+ 
+import LoginRecruiter from './Components-login/LoginRecruiter';
 import ForgotPassword from './Components-login/Forgotpassword';
 import Signup from './Components-login/Signup';
 import CreatePassword from './Components-login/CreatePassword';
@@ -11,6 +13,7 @@ import LoginSuccess from './Components-login/LoginSuccess';
 import LandingPage from './LandingPage';
 import UserRegRecruiter from './UserRegRecruiter';
 import UserRegCandidate from './UserRegCandidate';
+import LoginCandidate from './Components-login/LoginCandidate';
 
 
 const router = createBrowserRouter(
@@ -24,8 +27,12 @@ const router = createBrowserRouter(
       element: <Signup />,
     },
     {
-      path: '/Resume-builder/login', 
-      element: <Login />,
+      path: '/Resume-builder/login/candidate',
+      element: <LoginCandidate />,
+    },
+    {
+      path: '/Resume-builder/login/recruiter',
+      element: <LoginRecruiter />,
     },
     {
       path: '/Resume-builder/login/forgotpassword',
