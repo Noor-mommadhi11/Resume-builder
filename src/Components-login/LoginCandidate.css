@@ -64,7 +64,7 @@ body {
 .lc-login-form {
   width: min(70%, 520px);
   max-height: 100%;
-  padding: 20px;
+
 }
  
 .lc-login-form h2 {
@@ -100,7 +100,10 @@ lc.password-box {
   display: flex;
   align-items: center;
 }
- 
+ .lc-password-box input {
+  width: 100%;
+  padding-right: 40px; /* icon space */
+}
 .lc-eye-right {
   position: absolute;
   right: 14px;
@@ -462,20 +465,23 @@ lc.password-box {
  
 /* Common Button Style */
 .lc-login-type button {
-  width: 150px;   /* Button width */
-  height: 32px;   /* Button height */
-  border: 1px solid #c5c3e4;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 500;
+  min-width: 110px;
+  padding: 8px 22px;
+  border: 1px solid #d8deea;
+  border-radius: 6px;
+  background: #ecf2ff;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
  
 /* Candidate Active */
 /* Candidate Button */
 .lc-candidate-btn {
-  width: 220px;
-  height: 48px;
+  /* width: 220px;
+  height: 48px; */
   background: linear-gradient(180deg, #94b3ff 0%, #4479f5 100%);
   border: 1px solid #2f69e7;
   border-radius: 8px;
@@ -488,15 +494,17 @@ lc.password-box {
 
 /* Hover செய்தாலும் இதே style இருக்க */
 .lc-candidate-btn:hover {
-  background: linear-gradient(180deg, #94b3ff 0%, #4479f5 100%);
-  border-color: #2f69e7;
-  color: #1f2a44;
+ background: #e0eaff;
+  border-color: #abc4ff;
 }
-
+.lc-candidate-btn.active {
+background: linear-gradient(180deg, #abc4ff 0%, #5589ff 100%);
+  border: 1px solid #779ad9;
+  color: #000;
+}
 /* Recruiter Button */
 .lc-recruiter-btn {
-  width: 220px;
-  height: 48px;
+  
   background: #ECF0F9;
   border: 1px solid #C9D2E3;
   border-radius: 8px;
