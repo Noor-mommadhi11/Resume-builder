@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'; 
 import LoginCanditate from './Components-login/LoginCandidate';
- 
 import LoginRecruiter from './Components-login/LoginRecruiter';
 import ForgotPassword from './Components-login/Forgotpassword';
 import Signup from './Components-login/Signup';
@@ -11,8 +10,8 @@ import EmailVerification from './Components-login/EmailVerification';
 import OtpVerification from './Components-login/OtpVerification';
 import LoginSuccess from './Components-login/LoginSuccess';
 import LandingPage from './LandingPage';
-import UserRegRecruiter from './UserRegRecruiter';
-import UserRegCandidate from './UserRegCandidate';
+import UserRegRecruiter from './Components-login/UserRegRecruiter';
+import UserRegCandidate from './Components-login/UserRegCandidate';
 import LoginCandidate from './Components-login/LoginCandidate';
 
 
