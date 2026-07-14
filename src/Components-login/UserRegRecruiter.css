@@ -49,21 +49,18 @@
 
 .urr-info__checklist-item {
   display: flex;
-  align-items: flex-start;   /* center la irundhu flex-start ku maathiten */
+  align-items: center;
   gap: 10px;
   font-size: 20px;
   font-weight: 500;
   color: #374151;
-  line-height: 1.3;
+  line-height: 2;
 }
 
 .urr-info__check-icon {
   color: #2563eb;
   font-size: 15px;
   font-weight: bold;
-  line-height: 1.3;
-  flex-shrink: 0;
-  margin-top: 3px;
 }
 
 .urr-info__cards {
@@ -600,19 +597,6 @@
   .urr-field input,
   .urr-field select {
     font-size: 13px;
-  }
-
-}
-
-/* ===========================
-   Large monitors (above 1440px) —
-   cap the width so it doesn't over-stretch
-=========================== */
-@media screen and (min-width: 1441px) {
-
-  .urr-container {
-    max-width: 1600px;
-    margin: 0 auto;
   }
 
 }
