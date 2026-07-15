@@ -50,6 +50,13 @@
   align-items: center !important;
   text-align: center !important;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.feature-grid-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+  border-color: #2563eb;
 }
 
 .icon-box-wrapper {
