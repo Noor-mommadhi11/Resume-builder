@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 
 // Logo
-import logo from "../assets/logor.png";
+import logo from "../assets/RecruiterDashboard/logor.png";
 
 // Icons
-import dashboard from "../assets/dashboard.png";
-import candidates from "../assets/candidates.png";
-import screening from "../assets/screening.png";
-import jobs from "../assets/jobs1.png";
-import ranking from "../assets/ranking.png";
-import interview from "../assets/interview.png";
-import analytics from "../assets/analytics.png";
-import reports from "../assets/reports.png";
-import inbox from "../assets/inbox.png";
-import settings from "../assets/settings.png";
-import assistant from "../assets/assistant.png";
+import dashboard from "../assets/RecruiterDashboard/dashboard.png";
+import candidates from "../assets/RecruiterDashboard/candidates.png";
+import screening from "../assets/RecruiterDashboard/screening.png";
+import jobs from "../assets/RecruiterDashboard/jobs1.png";
+import ranking from "../assets/RecruiterDashboard/ranking.png";
+import interview from "../assets/RecruiterDashboard/interview.png";
+import analytics from "../assets/RecruiterDashboard/analytics.png";
+import reports from "../assets/RecruiterDashboard/reports.png";
+import inbox from "../assets/RecruiterDashboard/inbox.png";
+import settings from "../assets/RecruiterDashboard/settings.png";
+import assistant from "../assets/RecruiterDashboard/assistant.png";
 
 const Sidebar = () => {
   const [active, setActive] = useState("Dashboard");

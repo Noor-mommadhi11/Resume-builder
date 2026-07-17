@@ -2,16 +2,16 @@ import React from "react";
 import "./DashboardCards.css";
 
 // AI Screening Images
-import resume from "../assets/resume.png";
-import skill from "../assets/skill.png";
-import experience from "../assets/experience.png";
-import keyword from "../assets/keyword.png";
+import resume from "../assets/RecruiterDashboard/resume.png";
+import skill from "../assets/RecruiterDashboard/skill.png";
+import experience from "../assets/RecruiterDashboard/experience.png";
+import keyword from "../assets/RecruiterDashboard/keyword.png";
 
 // Recommendation Images
-import candidate from "../assets/candidate.png";
-import hire from "../assets/hire.png";
-import demand from "../assets/demand.png";
-import insights from "../assets/insights.png";
+import candidate from "../assets/RecruiterDashboard/candidate.png";
+import hire from "../assets/RecruiterDashboard/hire.png";
+import demand from "../assets/RecruiterDashboard/demand.png";
+import insights from "../assets/RecruiterDashboard/insights.png";
 
 const DashboardCards = () => {
   return (

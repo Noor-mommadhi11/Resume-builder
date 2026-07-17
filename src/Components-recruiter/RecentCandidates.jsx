@@ -1,7 +1,7 @@
 import React from "react";
 import { MoreVertical } from "lucide-react";
 import { PieChart, Pie, Cell } from "recharts";
-import eyeIcon from "../assets/eye.png";
+import eyeIcon from "../assets/RecruiterDashboard/eye.png";
 import "./RecentCandidates.css";
 
 const candidates = [
@@ -71,7 +71,7 @@ const skillsData = [
   { name: "Others", value: 6, color: "#D1D5DB" },
 ];
 
-function CandidatesTable() {
+const CandidatesTable = () => {
   return (
     <div className="card candidates-card">
       <h2 className="card-title">Recent Candidates</h2>
@@ -128,9 +128,9 @@ function CandidatesTable() {
       </div>
     </div>
   );
-}
+};
 
-function SkillsDistribution() {
+const SkillsDistribution = () => {
   const totalCandidates = 1248;
   return (
     <div className="card skills-card">
@@ -182,9 +182,9 @@ function SkillsDistribution() {
       </div>
     </div>
   );
-}
+};
 
-export default function RecentCandidates() {
+const RecentCandidates = () => {
   return (
     <div className="dashboard">
       <div className="dashboard-row">
@@ -193,4 +193,6 @@ export default function RecentCandidates() {
       </div>
     </div>
   );
-}
+};
+
+export default RecentCandidates;
