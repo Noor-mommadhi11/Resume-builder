@@ -11,8 +11,8 @@ import LoginSuccess from './Components-login-candidate/LoginSuccess';
 import LandingPage from './Components-landingpage/LandingPage';
 import UserRegRecruiter from './Components-login-recruiter/UserRegRecruiter';
 import UserRegCandidate from './Components-login-candidate/UserRegCandidate';
-import Landingpage from './Components-landingpage/LandingPage';
-
+import RecruiterDashboard from './Components-recruiter/RecruiterDashboard';
+import CreatePasswordRe from './Components-login-recruiter/CreatePasswordRe';
 
 const router = createBrowserRouter(
   [
@@ -56,7 +56,17 @@ const router = createBrowserRouter(
     {
       path: '/Resume-builder/signup/userregcandidate',
       element: <UserRegCandidate /> 
-    } 
+    },
+  
+{
+path: '/Resume-builder/login/createpasswordrecruiter',
+element: <CreatePasswordRe />
+},
+    {
+      path: '/Resume-builder/dashboard/recruiter',
+      element: <RecruiterDashboard /> 
+    },
+      
   ],
 );
 
