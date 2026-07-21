@@ -6,10 +6,10 @@ import recruiterIcon from "../assets/landingpage/recruiter-icon.png";
 import aiImage from "../assets/landingpage/ai-powered.png";
 import atsImage from "../assets/landingpage/ats-friendly.png";
 import secureImage from "../assets/landingpage/secure-private.png";
-
+ 
 const MainSection = () => {
   const [selectedRole, setSelectedRole] = useState("resume");
-
+ 
   const handleContinue = () => {
     if (selectedRole === "resume") {
       alert("Resume Builder Selected");
@@ -17,7 +17,7 @@ const MainSection = () => {
       alert("Recruiter Selected");
     }
   };
-
+ 
   return (
     <section className="lp-main-hero-section">
       {/* Left Side */}
@@ -27,12 +27,12 @@ const MainSection = () => {
           <br />
           <span>Screening system</span>
         </h1>
-
+ 
         <p>
           Create job-winning resumes in minutes and help recruiters find the
           perfect talent with AI-powered screening.
         </p>
-
+ 
         {/* Buttons */}
         <div className="lp-main-hero-buttons">
           <button
@@ -44,7 +44,7 @@ const MainSection = () => {
             <img src={resumeIcon} alt="resume" />
             <span>Create My Resume</span>
           </button>
-
+ 
           <button
             className={`lp-main-hero-btn ${
               selectedRole === "recruiter" ? "lp-main-active-btn" : ""
@@ -64,7 +64,7 @@ const MainSection = () => {
               <p>Smart suggestions that stand out</p>
             </div>
           </div>
-
+ 
           <div className="lp-main-feature-card">
             <img src={atsImage} alt="ATS Friendly" />
             <div>
@@ -72,7 +72,7 @@ const MainSection = () => {
               <p>Resumes optimized for ATS systems</p>
             </div>
           </div>
-
+ 
           <div className="lp-main-feature-card">
             <img src={secureImage} alt="Secure" />
             <div>
@@ -82,7 +82,7 @@ const MainSection = () => {
           </div>
         </div>
       </div>
-
+ 
       {/* Right Side */}
       <div className="lp-main-hero-right">
         <img src={heroImage} alt="Hero" />
@@ -90,5 +90,5 @@ const MainSection = () => {
     </section>
   );
 };
-
+ 
 export default MainSection;

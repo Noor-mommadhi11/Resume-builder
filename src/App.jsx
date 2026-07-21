@@ -9,10 +9,16 @@ import EmailVerification from './Components-login-candidate/EmailVerification';
 import OtpVerification from './Components-login-candidate/OtpVerification';
 import LoginSuccess from './Components-login-candidate/LoginSuccess';
 import LandingPage from './Components-landingpage/LandingPage';
-import UserRegRecruiter from './Components-login-recruiter/UserRegRecruiter';
-import UserRegCandidate from './Components-login-candidate/UserRegCandidate';
-import RecruiterDashboard from './Components-recruiter/RecruiterDashboard';
-import CreatePasswordRe from './Components-login-recruiter/CreatePasswordRe';
+import UserRegRecruiter from './Components-login-recruiter/Userregrecruiter';
+import UserRegCandidate from './Components-login-candidate/Userregcandidate';
+import Landingpage from './Components-landingpage/LandingPage';
+import EmailRecruiter from './Components-login-recruiter/EmailRecruiter';
+import OtpRecruiter from './Components-login-recruiter/OtpRecruiter';
+import ForgotPasswordRe from './Components-login-recruiter/ForgotpasswordRe';
+import CreatePasswordRe from './Components-login-recruiter/CreatepasswordRe';
+import RecruiterDashboard from './Components-Recruiter/RecruiterDashboard'
+
+
 
 const router = createBrowserRouter(
   [
@@ -32,7 +38,6 @@ const router = createBrowserRouter(
       path: '/Resume-builder/login/forgotpassword',
       element: <ForgotPassword />,  
     },
-   
     {
       path: '/Resume-builder/login/createpassword',
       element: <CreatePassword />
@@ -50,23 +55,33 @@ const router = createBrowserRouter(
       element: <LoginSuccess /> 
     },
     {
-      path: '/Resume-builder/signup/userregrecruiter',
+      path: '/Resume-builder/userregrecruiter',
       element: <UserRegRecruiter /> 
     },
     {
-      path: '/Resume-builder/signup/userregcandidate',
+      path: '/Resume-builder/userregcandidate',
       element: <UserRegCandidate /> 
     },
-  
-{
-path: '/Resume-builder/login/createpasswordrecruiter',
-element: <CreatePasswordRe />
-},
+    {
+      path: '/Resume-builder/login/emailrecruiter',
+      element: <EmailRecruiter /> 
+    },
+    {
+      path: '/Resume-builder/login/emailrecruiter/otprecruiter',
+      element: <OtpRecruiter /> 
+    },
+    {
+      path: '/Resume-builder/login/forgotpasswordre',
+      element: <ForgotPasswordRe />,  
+    },
+    {
+      path: '/Resume-builder/login/createpasswordre',
+      element: <CreatePasswordRe />
+    },
     {
       path: '/Resume-builder/dashboard/recruiter',
-      element: <RecruiterDashboard /> 
-    },
-      
+      element: <RecruiterDashboard />
+    }
   ],
 );
 

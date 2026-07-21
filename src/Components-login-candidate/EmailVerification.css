@@ -228,11 +228,11 @@
 
 @media (max-width: 480px) {
   .em-otp-input-group {
-    gap: 6px;   /* 12px la irundhu kammi */
+    gap: 6px;  
   }
 
   .em-otp-box {
-    width: 42px;   /* container ku match aaga adjust */
+    width: 42px;   
     height: 42px;
     font-size: 16px;
   }

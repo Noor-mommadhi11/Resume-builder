@@ -1,166 +1,105 @@
-import React, { useState } from "react";
-import "./RecruiterHeader.css";
-import DashboardCards from "./DashboardCards";
-import RecentCandidates from "./RecentCandidates";
-import applicants from "../assets/RecruiterDashboard/Applicants.png";
-import scanner from "../assets/RecruiterDashboard/Scanner.png";
-import bookmark from "../assets/RecruiterDashboard/Shorlisted.png";
-import ats from "../assets/RecruiterDashboard/ATS-score.png";
+import React, { useState, useRef, useEffect } from 'react';
+import './RecruiterHeader.css';
+import FiUser from "../assets/recruiter/FiUser.png";
+import SearchIcon from "../assets/recruiter/SearchIcon.png";
+import FiBell from "../assets/recruiter/FiBell.png";
+import settings from "../assets/recruiter/settings.png";
+import FiChevronDown from "../assets/recruiter/FiChevronDown.png";
 
-import hamburger from "../assets/RecruiterDashboard/FiChevronDown.png";
-import bellIcon from "../assets/RecruiterDashboard/FiBell.png";
-import mailIcon from "../assets/RecruiterDashboard/FiMail.png";
-import avatar from "../assets/RecruiterDashboard/FiUser.png";
-import searchIcon from "../assets/RecruiterDashboard/SearchIcon.png";
+const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-import {
-  FiMenu,
-  FiSearch,
-  FiBell,
-  FiMail,
-  FiUser,
-  FiChevronDown,
-} from "react-icons/fi";
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
 
-const RecruiterHeader = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
+  const handleLogout = () => {
+    // Add logout logic here
+    console.log('Logging out...');
+    setDropdownOpen(false);
   };
 
-  const handleBellClick = () => {
-    alert("Notifications");
-  };
-
-  const handleMailClick = () => {
-    alert("Inbox");
+  const handleHelp = () => {
+    // Add help logic here
+    console.log('Opening help...');
+    setDropdownOpen(false);
   };
 
   return (
-    <>
-      {/* ================= Navbar ================= */}
-<header className="navbar">
-
-  <div className="navbar-left">
-
-    <button className="menu-btn" onClick={toggleSidebar}>
-      <img src={hamburger} alt="Menu" className="menu-icon" />
-    </button>
-
-   <div className="search-box">
-  <input
-    type="text"
-    placeholder="Search Candidates, resumes..."
-  />
-
-  <button className="search-btn" type="button">
-    <img
-      src={searchIcon}
-      alt="Search"
-      className="search-icon"
-    />
-  </button>
-</div>
-
-  </div>
-
-  <div className="navbar-right">
-
-    <div className="icon-wrapper" onClick={handleBellClick}>
-      <img
-        src={bellIcon}
-        alt="Notification"
-        className="nav-image"
-      />
-    </div>
-
-    <div className="icon-wrapper" onClick={handleMailClick}>
-      <img
-        src={mailIcon}
-        alt="Mail"
-        className="nav-image"
-      />
-      <span className="notification-dot"></span>
-    </div>
-
-    <div className="profile">
-
-      <img
-        src={avatar}
-        alt="Avatar"
-        className="profile-avatar"
-      />
-
-      <div className="profile-info">
-        <h4>Akhila</h4>
-        <span>Recruiter</span>
+    <header className='rec-top-header'>
+      <div className='rec-header-left'>
+        {/* Mobile hamburger toggle - only visible below 768px, controls the sidebar */}
+        <button
+          className={`rec-mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setMobileMenuOpen(prev => !prev)}
+          aria-label="Toggle sidebar menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <span className='rec-dashboard-title-top'>AI Resume Builder & Screening System</span>
       </div>
-
-      <FiChevronDown className="dropdown-icon" />
-
-    </div>
-
-  </div>
-
-</header>
-
-      {/* ================= Dashboard ================= */}
-
-      <div className="rd-dashboard">
-        <div className="rd-header">
-          <h1>Recruiter Dashboard</h1>
-          <p>
-            Manage candidates, screen resumes and hire the best talent with AI.
-          </p>
-        </div>
-
-        <div className="rd-top-cards">
-          <div className="rd-card">
-            <img src={applicants} alt="Applicants" className="rd-icon" />
-
-            <div className="rd-card-content">
-              <h3>Total Applicants</h3>
-              <h2>125</h2>
-              <p>↑ 12% this month</p>
-            </div>
-          </div>
-
-          <div className="rd-card">
-            <img src={scanner} alt="Scanner" className="rd-icon" />
-
-            <div className="rd-card-content">
-              <h3>Scanned Candidates</h3>
-              <h2>92</h2>
-              <p>↑ 12% this month</p>
-            </div>
-          </div>
-
-          <div className="rd-card">
-            <img src={bookmark} alt="Shortlisted" className="rd-icon" />
-
-            <div className="rd-card-content">
-              <h3>Shortlisted</h3>
-              <h2>48</h2>
-              <p>↑ 12% this month</p>
-            </div>
-          </div>
-
-          <div className="rd-card">
-            <img src={ats} alt="ATS Score" className="rd-icon" />
-
-            <div className="rd-card-content">
-              <h3>Average ATS Score</h3>
-              <h2>87%</h2>
-              <p>↑ 12% this month</p>
-            </div>
-          </div>
-        </div>
-
-     <DashboardCards /> 
-     
+      <div className='rec-search-wrapper'>
+        <img src={SearchIcon} width={18} height={18} alt="Search" className='rec-search-icon' />
+        <input type='text' placeholder='Search roles, skills, or companies...' />
       </div>
-    </>
+      <div className='rec-user-profile'>
+        <div className='rec-header-icon'><img src={FiBell} width={20} height={20} alt="Notifications" /></div>
+        <div className='rec-header-icon'><img src={settings} width={20} height={20} alt="Settings" /></div>
+        
+        {/* User Avatar with Dropdown */}
+        <div className='rec-avatar-dropdown-wrapper' ref={dropdownRef}>
+          <div 
+            className='rec-avatar-wrapper'
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            <img src={FiUser} width={32} height={32} alt="User Avatar" className="rec-top-avatar" />
+            <div className='rec-user-info'>
+              <h4>Akash</h4>
+              <p>Recruiter</p>
+            </div>
+            <img 
+              src={FiChevronDown} 
+              width={14} 
+              height={14} 
+              alt="Dropdown" 
+              className={`rec-dropdown-arrow ${dropdownOpen ? 'open' : ''}`}
+            />
+          </div>
+
+          {/* Dropdown Menu */}
+          {dropdownOpen && (
+            <div className='rec-user-dropdown-menu'>
+              <button className='rec-dropdown-item rec-help-btn' onClick={handleHelp}>
+             
+                Help
+              </button>
+              <div className='rec-dropdown-divider'></div>
+              <button className='rec-dropdown-item rec-logout-btn' onClick={handleLogout}>
+               
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </header>
   );
 };
 

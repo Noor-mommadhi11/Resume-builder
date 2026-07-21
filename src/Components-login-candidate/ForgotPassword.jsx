@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import forgotLock from "../assets/forgot-lock.png";
 import forgotImage from "../assets/forgot-image.png";
 import "./ForgotPassword.css";
@@ -21,17 +21,13 @@ const ForgotPassword = () => {
     e.preventDefault();
     setEmailError("");
 
-    // 1. Empty Check
     if (!email.trim()) {
       setEmailError("Please enter your email.");
       return;
     }
 
-    // 2. Format Check
     if (!validateEmail(email)) {
-      setEmailError(
-        "Please enter a valid email address (e.g., name@example.com).",
-      );
+      setEmailError("Please enter a valid email address (e.g., name@example.com).");
       return;
     }
 
@@ -48,19 +44,24 @@ const ForgotPassword = () => {
 
       {/* Right Side */}
       <div className="forgot-card">
+        
+        {/* Back Button Wrapper */}
         <div className="back-btn">
-          <span onClick={() => navigate("/Resume-builder/login")}>
+          <button 
+            type="button" 
+            onClick={() => navigate(-1)} 
+          >
             <img
               src={backIcon}
               alt="back"
               className="btn-icon-img"
-              style={{ width: "18px", height: "18px", objectFit: "contain" }}
-            />{" "}
+            />
             Back to login
-          </span>
+          </button>
         </div>
 
-        <div className="forgot-logo">
+        {/* Dynamic Class Sync with CSS Icon Circle */}
+        <div className="icon-circle">
           <img src={forgotLock} alt="Lock" className="forgot-lock-img" />
         </div>
 
@@ -73,9 +74,10 @@ const ForgotPassword = () => {
         </p>
 
         <form onSubmit={handleSubmit} noValidate>
-          <label>Email Address</label>
+          <label htmlFor="forgot-email">Email Address</label>
 
           <input
+            id="forgot-email"
             type="email"
             placeholder="example@gmail.com"
             value={email}
@@ -87,21 +89,12 @@ const ForgotPassword = () => {
           />
 
           {emailError && (
-            <span
-              className="error-text"
-              style={{
-                color: "red",
-                fontSize: "13px",
-                display: "block",
-                marginTop: "5px",
-                textAlign: "left",
-              }}
-            >
+            <span className="error-text">
               {emailError}
             </span>
           )}
 
-          <button type="submit" style={{ marginTop: "15px" }}>
+          <button type="submit" className="submit-btn">
             Send Reset Link
           </button>
         </form>
@@ -114,14 +107,14 @@ const ForgotPassword = () => {
 
         <p className="continue-text"> Or Continue with</p>
 
+        {/* HTML & CSS Class Synced Links */}
         <div className="social-login">
-          <button type="button" className="socialBtn">
+          <a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer">
             <img src={googleIcon} alt="Google" />
-          </button>
-
-          <button type="button" className="socialBtn">
+          </a>
+          <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer">
             <img src={linkedinIcon} alt="LinkedIn" />
-          </button>
+          </a>
         </div>
 
         <p className="help-text">
