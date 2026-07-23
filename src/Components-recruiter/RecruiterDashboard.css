@@ -863,209 +863,151 @@ html, body, #root {
   min-height: 260px;
 }
 
-.rec-box-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-}
-
-.rec-box-header h4 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.rec-box-header select {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid #D1D5DB;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.rec-box-header select:hover {
-  border-color: #9ca3af;
-}
-
-/* CANDIDATE PIPELINE */
-
-
-/* ================= CANDIDATE PIPELINE ================= */
-
-.rec-funnel-placeholder {
-  width: 100%;
-}
+/* ===== FINAL CANDIDATE PIPELINE ===== */
 
 .rec-funnel {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  position: relative !important;
+  width: 300px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
 }
 
 .rec-funnel-row {
-  position: relative;
-  width: 300px;
-  height: 51px;
+  position: relative !important;
+  width: 300px !important;
+  height: 48px !important;
 }
 
-/* Funnel shape */
+/* Funnel shapes */
 .funnel-layer {
-  position: absolute;
-  left: 103px;
-  top: 0;
-  transform: translateX(-50%);
-  height: 48px;
+  position: absolute !important;
+  top: 0 !important;
+  left: 112px !important;
+  transform: translateX(-50%) !important;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  margin: 0;
-  color: #ffffff;
-  font-size: 17px;
-  font-weight: 700;
-  border-radius: 5px;
-
-  clip-path: polygon(8% 0%, 92% 0%, 84% 100%, 16% 100%);
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  border-radius: 5px !important;
+  clip-path: polygon(8% 0%, 92% 0%, 84% 100%, 16% 100%) !important;
 }
 
-/* Funnel sizes and colors */
+/* Funnel colours and widths */
 .f-applied {
-  width: 178px;
-  background: #3366f5;
+  width: 185px !important;
+  background: #3366f5 !important;
 }
 
 .f-screened {
-  width: 150px;
-  background: #48c15e;
+  width: 150px !important;
+  background: #48c15e !important;
 }
 
 .f-reviewed {
-  width: 120px;
-  background: #ffa20a;
+  width: 125px !important;
+  background: #ffa20a !important;
 }
 
 .f-shortlisted {
-  width: 95px;
-  background: #7365f9;
+  width: 95px !important;
+  background: #7365f9 !important;
 }
 
 .f-hired {
-  width: 78px;
-  background: #ff4040;
+  width: 74px !important;
+  background: #ff4040 !important;
 }
 
-/* Lines */
+/* Lines: all dots stay in one vertical line */
 .pipeline-line {
-  position: absolute;
-  top: 23px;
-  width: 22px;
-  height: 2px;
-  margin: 0;
+  position: absolute !important;
+  top: 23px !important;
+  left: auto !important;
+  right: 75px !important;
+  height: 2px !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 
-/* Circle at line end */
-.pipeline-line::after {
-  content: "";
-  position: absolute;
-  right: -4px;
-  top: -3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-/* Line positions — each one touches its funnel */
 .rec-funnel-row:nth-child(1) .pipeline-line {
-  left: 192px;
+  width: 43px !important;
 }
 
 .rec-funnel-row:nth-child(2) .pipeline-line {
-  left: 178px;
+  width: 56px !important;
 }
 
 .rec-funnel-row:nth-child(3) .pipeline-line {
-  left: 163px;
+  width: 66px !important;
 }
 
 .rec-funnel-row:nth-child(4) .pipeline-line {
-  left: 151px;
+  width: 77px !important;
 }
 
 .rec-funnel-row:nth-child(5) .pipeline-line {
-  left: 142px;
+  width: 85px !important;
+}
+
+/* Dot */
+.pipeline-line::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -4px !important;
+  top: -3px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
 }
 
 /* Labels */
 .pipeline-label {
-  position: absolute;
-  left: 229px;
-  top: 14px;
-  margin: 0;
-  width: auto;
-  font-size: 13px;
-  font-weight: 500;
-  color: #111827;
-  white-space: nowrap;
+  position: absolute !important;
+  left: 244px !important;
+  top: 14px !important;
+  width: auto !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
 }
 
-/* Blue */
+/* Line and dot colours */
 .blue,
 .blue::after {
-  background: #3366f5;
+  background: #3366f5 !important;
 }
 
-/* Green */
 .green,
 .green::after {
-  background: #48c15e;
+  background: #48c15e !important;
 }
 
-/* Orange */
 .orange,
 .orange::after {
-  background: #ffa20a;
+  background: #ffa20a !important;
 }
 
-/* Purple */
 .purple,
 .purple::after {
-  background: #7365f9;
+  background: #7365f9 !important;
 }
 
-/* Red */
 .red,
 .red::after {
-  background: #ff4040;
+  background: #ff4040 !important;
 }
 
-/* FINAL PIPELINE CONNECTOR FIX — same line length */
-.pipeline-line {
-  width: 45px !important;
-}
 
-/* Move every line to touch its funnel */
-.rec-funnel-row:nth-child(1) .pipeline-line {
-  transform: translateX(-27px) !important;
-}
 
-.rec-funnel-row:nth-child(2) .pipeline-line {
-  transform: translateX(-29px) !important;
-}
 
-.rec-funnel-row:nth-child(3) .pipeline-line {
-  transform: translateX(-18px) !important;
-}
-
-.rec-funnel-row:nth-child(4) .pipeline-line {
-  transform: translateX(-19px) !important;
-}
-
-.rec-funnel-row:nth-child(5) .pipeline-line {
-  transform: translateX(-15px) !important;
-}
 
 /* Mobile */
 @media (max-width: 576px) {
