@@ -43,6 +43,18 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
     setMobileSearchOpen((prev) => !prev);
   };
 
+  // Notification
+  const handleNotification = () => {
+    alert("No New Notifications");
+    setDropdownOpen(false);
+  };
+
+  // Settings
+  const handleSettings = () => {
+    alert("Settings Page Coming Soon");
+    setDropdownOpen(false);
+  };
+
   const handleLogout = () => {
     console.log('Logging out...');
     setDropdownOpen(false);
@@ -103,10 +115,10 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           <img src={SearchIcon} width={20} height={20} alt="Search Toggle" />
         </div>
 
-        <div className='rec-header-icon'>
+        <div className='rec-header-icon' onClick={handleNotification}>
           <img src={FiBell} width={20} height={20} alt="Notifications" />
         </div>
-        <div className='rec-header-icon'>
+        <div className='rec-header-icon' onClick={handleSettings}>
           <img src={settings} width={20} height={20} alt="Settings" />
         </div>
         
@@ -172,4 +184,3 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
 };
 
 export default RecruiterHeader;
-
