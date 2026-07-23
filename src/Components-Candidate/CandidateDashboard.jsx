@@ -158,12 +158,23 @@ const interviewsData = [
    CandidateDashboard Component
 =========================================== */
 const CandidateDashboard = () => {
+  const [activeTab, setActiveTab] = useState("Dashboard");
   const [resumeUploaded, setResumeUploaded] = useState(false);
   const [activeButton, setActiveButton] = useState("create");
   const [showPopup, setShowPopup] = useState(false);
 
   // Sidebar Mobile Toggle State
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Same pattern as RecruiterDashboard: set active tab + scroll to section
+  const handleNavClick = (tabName, sectionId) => {
+    setActiveTab(tabName);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setIsSidebarOpen(false);
+  };
 
   const handleCreateResume = () => {
     setActiveButton("create");
@@ -246,10 +257,10 @@ const CandidateDashboard = () => {
   return (
     <div className="can-dashboard-page-wrapper">
       {/* Dynamic Header Component */}
-     <CandidateHeader
-  mobileMenuOpen={isSidebarOpen}
-  setMobileMenuOpen={setIsSidebarOpen}
-/>
+      <CandidateHeader
+        mobileMenuOpen={isSidebarOpen}
+        setMobileMenuOpen={setIsSidebarOpen}
+      />
 
       <div className="can-dashboard-layout">
         {/* Mobile Sidebar Overlay */}
@@ -260,42 +271,66 @@ const CandidateDashboard = () => {
           />
         )}
 
-        {/* Sidebar */}
+        {/* Sidebar - SAME activeTab + scrollIntoView pattern as RecruiterDashboard */}
         <aside className={`can-sidebar ${isSidebarOpen ? "can-mobile-open" : ""}`}>
           <div>
             <ul className="can-menu">
-              <li className="can-active" onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={activeTab === "Dashboard" ? "can-active" : ""}
+                onClick={() => handleNavClick("Dashboard", "can-dashboard-sec")}
+              >
                 <img src={dashboardIcon} alt="Dashboard" />
                 <span>Dashboard</span>
               </li>
-              <li onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={activeTab === "Profile" ? "can-active" : ""}
+                onClick={() => handleNavClick("Profile", "can-profile-sec")}
+              >
                 <img src={profileIcon} alt="Profile" />
                 <span>Profile</span>
               </li>
-              <li onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={activeTab === "AI Report" ? "can-active" : ""}
+                onClick={() => handleNavClick("AI Report", "can-report-sec")}
+              >
                 <img src={aiReportIcon} alt="AI Report" />
                 <span>AI Report</span>
               </li>
-              <li onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={activeTab === "Skill Matching" ? "can-active" : ""}
+                onClick={() => handleNavClick("Skill Matching", "can-skill-sec")}
+              >
                 <img src={skillIconSidebar} alt="Skill Matching" />
                 <span>Skill Matching</span>
               </li>
-              <li onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={activeTab === "Job Matches" ? "can-active" : ""}
+                onClick={() => handleNavClick("Job Matches", "can-jobs-sec")}
+              >
                 <img src={jobsIcon} alt="Job Matches" />
                 <span>Job Matches</span>
               </li>
-              <li onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={activeTab === "Saved Jobs" ? "can-active" : ""}
+                onClick={() => handleNavClick("Saved Jobs", "can-saved-sec")}
+              >
                 <img src={savedIcon} alt="Saved Jobs" />
                 <span>Saved Jobs</span>
               </li>
-              <li className="can-message" onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={`can-message ${activeTab === "Message" ? "can-active" : ""}`}
+                onClick={() => handleNavClick("Message", "can-message-sec")}
+              >
                 <div className="can-left">
                   <img src={messageIcon} alt="Message" />
                   <span>Message</span>
                 </div>
                 <span className="can-badge">2</span>
               </li>
-              <li onClick={() => setIsSidebarOpen(false)}>
+              <li
+                className={activeTab === "Learning Center" ? "can-active" : ""}
+                onClick={() => handleNavClick("Learning Center", "can-learning-sec")}
+              >
                 <img src={learningIcon} alt="Learning Center" />
                 <span>Learning Center</span>
               </li>
@@ -334,8 +369,8 @@ const CandidateDashboard = () => {
         </aside>
 
         <main className="can-dashboard-main">
-          {/* Header Banner */}
-          <section className="can-dashboard-header">
+          {/* id added here so 'Dashboard' menu click scrolls to top of this section */}
+          <section id="can-dashboard-sec" className="can-dashboard-header">
             <div className="can-welcome-container">
               <div className="can-welcome-left">
                 <div className="can-welcome-heading">
@@ -439,8 +474,8 @@ const CandidateDashboard = () => {
           {/* Inner Content */}
           <div className="can-dashboard-content">
             <div className="can-dashboard-row-one">
-              {/* ATS Score */}
-              <div className="can-ats-wrapper">
+              {/* ATS Score -> id used by "AI Report" menu item */}
+              <div id="can-report-sec" className="can-ats-wrapper">
                 <div className="can-ats-card">
                   <h2 className="can-ats-title">ATS Score Breakdown</h2>
                   <div className="can-ats-content">
@@ -521,8 +556,8 @@ const CandidateDashboard = () => {
                 )}
               </div>
 
-              {/* Skill Analysis */}
-              <div className="can-skill-analysis-wrapper">
+              {/* Skill Analysis -> id used by "Skill Matching" menu item */}
+              <div id="can-skill-sec" className="can-skill-analysis-wrapper">
                 <div className="can-skill-card">
                   <h2>Skill Analysis</h2>
                   {skillsData.map((skill) => (
@@ -542,8 +577,8 @@ const CandidateDashboard = () => {
                 </div>
               </div>
 
-              {/* AI Assistant */}
-              <div className="can-ai-assistant-wrapper">
+              {/* AI Assistant -> id used by "Learning Center" menu item */}
+              <div id="can-learning-sec" className="can-ai-assistant-wrapper">
                 <div className="can-assistant-card">
                   <div className="can-assistant-header">
                     <img src={aiStar} alt="AI Star" />
@@ -566,8 +601,8 @@ const CandidateDashboard = () => {
             </div>
 
             <div className="can-dashboard-row-two">
-              {/* Recent Activity */}
-              <div className="can-recent-activity-wrapper">
+              {/* Recent Activity -> id used by "Message" menu item */}
+              <div id="can-message-sec" className="can-recent-activity-wrapper">
                 <div className="can-recent-activity-card">
                   <h3 className="can-recent-activity-title">Recent Activity</h3>
                   <div className="can-recent-activity-list">
@@ -591,8 +626,8 @@ const CandidateDashboard = () => {
                 </div>
               </div>
 
-              {/* Upcoming Interviews */}
-              <div className="can-upcoming-interviews-wrapper">
+              {/* Upcoming Interviews -> id used by "Job Matches" menu item */}
+              <div id="can-jobs-sec" className="can-upcoming-interviews-wrapper">
                 <div className="can-upcoming-card">
                   <h3 className="can-upcoming-title">Upcoming Interviews</h3>
                   <div className="can-upcoming-list">
@@ -620,9 +655,9 @@ const CandidateDashboard = () => {
                 </div>
               </div>
 
-              {/* Profile Visibility */}
-              <div className="can-profile-visibility-wrapper">
-                <div className="can-profile-card">
+              {/* Profile Visibility -> id used by "Profile" and "Saved Jobs" menu items */}
+              <div id="can-profile-sec" className="can-profile-visibility-wrapper">
+                <div id="can-saved-sec" className="can-profile-card">
                   <h3 className="can-profile-title">Profile Visibility</h3>
                   <p className="can-profile-subtitle">
                     Your profile is <strong>70%</strong> visible to recruiters

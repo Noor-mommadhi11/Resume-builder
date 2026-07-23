@@ -37,21 +37,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden; /* no scroll */
   z-index: 1000;
   box-sizing: border-box;
-}
-
-.can-sidebar::-webkit-scrollbar {
-  width: 5px;
-}
-.can-sidebar::-webkit-scrollbar-track {
-  background: transparent;
-}
-.can-sidebar::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 10px;
 }
 
 .can-logo-section,
@@ -61,13 +49,15 @@ body {
 }
 
 .can-menu {
-  align-items: center;
   list-style: none;
   flex: 1;
+  min-height: 0;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: hidden;
 }
 
+/* Back to original rounded-box shape (no edge-to-edge negative margin) */
 .can-menu li {
   display: flex;
   align-items: center;
@@ -83,20 +73,25 @@ body {
 }
 
 .can-menu li:hover {
-  background: #f8fafc;
+  background: #eef3ff;
+  color: #2563eb;
 }
 
+/* Icon is always blue by default AND on hover */
 .can-menu li img {
   width: 20px;
   height: 20px;
   object-fit: contain;
   flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(94%) saturate(4900%)
+    hue-rotate(218deg) brightness(97%) contrast(102%);
 }
 
 .can-menu li span {
   flex: 1;
 }
 
+/* ACTIVE state: rounded blue box, full width within sidebar padding */
 .can-menu .can-active {
   width: 100%;
   box-sizing: border-box;
@@ -107,6 +102,12 @@ body {
   font-weight: 600;
 }
 
+.can-menu .can-active:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* Only the ACTIVE item's icon turns white */
 .can-menu .can-active img {
   filter: brightness(0) invert(1);
 }
@@ -1235,7 +1236,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
-    overflow-y: auto;
+    overflow: hidden;
   }
 
   .can-sidebar.can-mobile-open {
