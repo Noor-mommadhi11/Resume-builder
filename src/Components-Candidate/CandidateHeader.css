@@ -1,8 +1,8 @@
 /* ===========================================================
-   RECRUITER HEADER CSS
+   CANDIDATE HEADER CSS
    =========================================================== */
 
-.rec-top-header {
+.can-top-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -21,7 +21,7 @@
 }
 
 /* LEFT SECTION: Logo, Title & Mobile Toggle */
-.rec-header-left {
+.can-header-left {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -29,7 +29,7 @@
   flex-shrink: 0;
 }
 
-.rec-mobile-toggle {
+.can-mobile-toggle {
   display: none;
   flex-direction: column;
   background: none;
@@ -40,7 +40,7 @@
   margin-left: -8px;
 }
 
-.rec-mobile-toggle span {
+.can-mobile-toggle span {
   width: 24px;
   height: 2px;
   background: #1e293b;
@@ -48,35 +48,36 @@
   transition: all 0.3s ease;
 }
 
-.rec-mobile-toggle.open span:nth-child(1) {
+.can-mobile-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(10px, 10px);
 }
 
-.rec-mobile-toggle.open span:nth-child(2) {
+.can-mobile-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 
-.rec-mobile-toggle.open span:nth-child(3) {
+.can-mobile-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* Logo Image */
-.rec-logo-img {
+.can-logo-img {
   width: 40px;
   height: 40px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-/* Title & Subtitle Container */
-.rec-title-container {
+/* Title & Subtitle Container - hidden on desktop by default? 
+   (kept visible on desktop like recruiter, hidden only on mobile) */
+.can-title-container {
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-width: 0;
 }
 
-.rec-dashboard-title-top {
+.can-dashboard-title-top {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
@@ -84,7 +85,7 @@
   line-height: 1.2;
 }
 
-.rec-dashboard-subtitle {
+.can-dashboard-subtitle {
   margin: 0;
   font-size: 11px;
   color: #64748b;
@@ -92,7 +93,7 @@
 }
 
 /* MIDDLE SECTION: Search Bar (Desktop) */
-.rec-search-wrapper {
+.can-search-wrapper {
   display: flex;
   align-items: center;
   background: #f1f5f9;
@@ -105,13 +106,13 @@
   min-width: 250px;
 }
 
-.rec-search-icon {
+.can-search-icon {
   flex-shrink: 0;
   color: #94a3b8;
   cursor: pointer;
 }
 
-.rec-search-wrapper input {
+.can-search-wrapper input {
   flex: 1;
   border: none;
   background: transparent;
@@ -121,25 +122,25 @@
   min-width: 0;
 }
 
-.rec-search-wrapper input::placeholder {
+.can-search-wrapper input::placeholder {
   color: #94a3b8;
 }
 
 /* Mobile expandable search row - hidden by default, only shown
    via JS toggle (mobileSearchOpen) below 768px */
-.rec-mobile-search-section {
+.can-mobile-search-section {
   display: none;
 }
 
 /* RIGHT SECTION: User Profile & Icons */
-.rec-user-profile {
+.can-user-profile {
   display: flex;
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
 }
 
-.rec-header-icon {
+.can-header-icon {
   width: 40px;
   height: 40px;
   border-radius: 8px;
@@ -151,27 +152,27 @@
   transition: all 0.2s ease;
 }
 
-.rec-header-icon:hover {
+.can-header-icon:hover {
   background: #e2e8f0;
 }
 
-.rec-header-icon img {
+.can-header-icon img {
   width: 20px;
   height: 20px;
   object-fit: contain;
 }
 
 /* Mobile-only search trigger icon (hidden on desktop) */
-.rec-mobile-search-trigger {
+.can-mobile-search-trigger {
   display: none;
 }
 
 /* Avatar Dropdown Wrapper */
-.rec-avatar-dropdown-wrapper {
+.can-avatar-dropdown-wrapper {
   position: relative;
 }
 
-.rec-avatar-wrapper {
+.can-avatar-wrapper {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -183,11 +184,11 @@
   min-width: fit-content;
 }
 
-.rec-avatar-wrapper:hover {
+.can-avatar-wrapper:hover {
   background: #e2e8f0;
 }
 
-.rec-top-avatar {
+.can-top-avatar {
   width: 32px;
   height: 32px;
   border-radius: 6px;
@@ -195,14 +196,14 @@
   flex-shrink: 0;
 }
 
-.rec-user-info {
+.can-user-info {
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-width: fit-content;
 }
 
-.rec-user-info h4 {
+.can-user-info h4 {
   margin: 0;
   font-size: 13px;
   font-weight: 600;
@@ -210,26 +211,26 @@
   line-height: 1;
 }
 
-.rec-user-info p {
+.can-user-info p {
   margin: 0;
   font-size: 11px;
   color: #64748b;
   line-height: 1;
 }
 
-.rec-dropdown-arrow {
+.can-dropdown-arrow {
   width: 14px;
   height: 14px;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
 
-.rec-dropdown-arrow.open {
+.can-dropdown-arrow.open {
   transform: rotate(180deg);
 }
 
 /* Dropdown Menu */
-.rec-user-dropdown-menu {
+.can-user-dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
@@ -254,7 +255,7 @@
   }
 }
 
-.rec-dropdown-item {
+.can-dropdown-item {
   width: 100%;
   padding: 12px 16px;
   border: none;
@@ -270,39 +271,39 @@
   gap: 8px;
 }
 
-.rec-dropdown-item-icon {
+.can-dropdown-item-icon {
   width: 16px;
   height: 16px;
   object-fit: contain;
 }
 
-.rec-dropdown-item:hover {
+.can-dropdown-item:hover {
   background: #f1f5f9;
   color: #2563eb;
 }
 
-.rec-help-btn {
+.can-help-btn {
   color: #1e293b;
 }
 
-.rec-logout-btn {
+.can-logout-btn {
   color: #dc2626;
 }
 
-.rec-logout-btn:hover {
+.can-logout-btn:hover {
   background: #fef2f2;
   color: #b91c1c;
 }
 
-.rec-dropdown-divider {
+.can-dropdown-divider {
   height: 1px;
   background: #e2e8f0;
   margin: 0;
 }
 
 /* Mobile-only dropdown items (notification/settings) - hidden on desktop */
-.rec-mobile-notification-item,
-.rec-mobile-settings-item {
+.can-mobile-notification-item,
+.can-mobile-settings-item {
   display: none;
 }
 
@@ -312,103 +313,103 @@
 
 /* Tablet Landscape (1024px and below) */
 @media screen and (max-width: 1024px) {
-  .rec-top-header {
+  .can-top-header {
     padding: 0 16px;
     gap: 12px;
   }
 
-  .rec-search-wrapper {
+  .can-search-wrapper {
     max-width: 350px;
     min-width: 200px;
   }
 
-  .rec-user-info {
+  .can-user-info {
     display: none;
   }
 
-  .rec-dashboard-title-top {
+  .can-dashboard-title-top {
     font-size: 14px;
   }
 
-  .rec-dashboard-subtitle {
+  .can-dashboard-subtitle {
     font-size: 10px;
   }
 }
 
 /* Mobile & Tablet Portrait (768px and below) */
 @media screen and (max-width: 768px) {
-  .rec-top-header {
+  .can-top-header {
     height: 70px;
     padding: 0 12px;
     gap: 8px;
   }
 
-  .rec-top-header.show-mobile-search {
+  .can-top-header.show-mobile-search {
     height: 120px;
     flex-wrap: wrap;
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
-  .rec-mobile-toggle {
+  .can-mobile-toggle {
     display: flex;
   }
 
-  .rec-logo-img {
+  .can-logo-img {
     width: 36px;
     height: 36px;
   }
 
-  .rec-title-container {
+  .can-title-container {
     display: none;
   }
 
   /* Hide the desktop inline search bar on mobile — replaced by
      the icon trigger + expandable row below */
-  .rec-search-wrapper:not(.rec-mobile-search-section) {
+  .can-search-wrapper:not(.can-mobile-search-section) {
     display: none;
   }
 
-  .rec-mobile-search-trigger {
+  .can-mobile-search-trigger {
     display: flex;
   }
 
-  .rec-header-icon {
+  .can-header-icon {
     width: 36px;
     height: 36px;
   }
 
-  .rec-header-icon img {
+  .can-header-icon img {
     width: 18px;
     height: 18px;
   }
 
-  .rec-avatar-wrapper {
+  .can-avatar-wrapper {
     padding: 6px 12px;
     gap: 8px;
   }
 
-  .rec-top-avatar {
+  .can-top-avatar {
     width: 32px;
     height: 32px;
   }
 
-  .rec-user-info {
+  .can-user-info {
     display: none;
   }
 
-  .rec-dropdown-arrow {
+  .can-dropdown-arrow {
     display: none;
   }
 
-  .rec-mobile-notification-item,
-  .rec-mobile-settings-item {
+  .can-mobile-notification-item,
+  .can-mobile-settings-item {
     display: flex;
   }
 
   /* Expandable second row search bar - shown only when
      mobileSearchOpen state is true (show-mobile-search class) */
-  .rec-top-header.show-mobile-search .rec-mobile-search-section {
+  .can-top-header.show-mobile-search .can-mobile-search-section {
     display: flex;
     align-items: center;
     background: #f1f5f9;
@@ -422,7 +423,7 @@
     margin-top: 4px;
   }
 
-  .rec-mobile-search-section input {
+  .can-mobile-search-section input {
     flex: 1;
     border: none;
     background: transparent;
@@ -432,11 +433,11 @@
     min-width: 0;
   }
 
-  .rec-mobile-search-section input::placeholder {
+  .can-mobile-search-section input::placeholder {
     color: #94a3b8;
   }
 
-  .rec-mobile-search-section .rec-search-icon {
+  .can-mobile-search-section .can-search-icon {
     width: 16px;
     height: 16px;
   }
@@ -444,55 +445,55 @@
 
 /* Small Mobile (below 480px) */
 @media screen and (max-width: 480px) {
-  .rec-top-header {
+  .can-top-header {
     height: 65px;
     padding: 0 8px;
     gap: 6px;
   }
 
-  .rec-top-header.show-mobile-search {
+  .can-top-header.show-mobile-search {
     height: 115px;
   }
 
-  .rec-header-left {
+  .can-header-left {
     gap: 6px;
   }
 
-  .rec-logo-img {
+  .can-logo-img {
     width: 32px;
     height: 32px;
   }
 
-  .rec-mobile-search-trigger {
+  .can-mobile-search-trigger {
     width: 32px;
     height: 32px;
   }
 
-  .rec-mobile-search-trigger img {
+  .can-mobile-search-trigger img {
     width: 16px;
     height: 16px;
   }
 
-  .rec-user-profile {
+  .can-user-profile {
     gap: 8px;
   }
 
-  .rec-header-icon {
+  .can-header-icon {
     width: 32px;
     height: 32px;
   }
 
-  .rec-header-icon img {
+  .can-header-icon img {
     width: 16px;
     height: 16px;
   }
 
-  .rec-avatar-wrapper {
+  .can-avatar-wrapper {
     padding: 4px 8px;
     gap: 6px;
   }
 
-  .rec-top-avatar {
+  .can-top-avatar {
     width: 28px;
     height: 28px;
   }
@@ -500,65 +501,54 @@
 
 /* Ultra-wide screens (1920px+) */
 @media screen and (min-width: 1921px) {
-  .rec-top-header {
+  .can-top-header {
     padding: 0 32px;
     gap: 32px;
   }
 
-  .rec-search-wrapper {
+  .can-search-wrapper {
     max-width: 700px;
   }
 
-  .rec-dashboard-title-top {
+  .can-dashboard-title-top {
     font-size: 18px;
   }
 
-  .rec-dashboard-subtitle {
+  .can-dashboard-subtitle {
     font-size: 12px;
   }
 
-  .rec-header-icon {
+  .can-header-icon {
     width: 44px;
     height: 44px;
   }
 
-  .rec-top-avatar {
+  .can-top-avatar {
     width: 36px;
     height: 36px;
   }
 }
-/* Mobile expandable search row */
-.rec-mobile-search-section {
-  display: none;
-}
-
-/* Mobile-only search trigger icon (hidden on desktop) */
-.rec-mobile-search-trigger {
-  display: none;
-}
-
 @media screen and (max-width: 768px) {
-  .rec-top-header {
+  .can-top-header {
     transition: height 0.3s ease;
   }
 
-  .rec-top-header.show-mobile-search {
+  .can-top-header.show-mobile-search {
     height: 120px;
     flex-wrap: wrap;
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
-  /* Hide desktop inline search bar, show icon trigger instead */
-  .rec-search-wrapper:not(.rec-mobile-search-section) {
+  .can-search-wrapper:not(.can-mobile-search-section) {
     display: none;
   }
 
-  .rec-mobile-search-trigger {
+  .can-mobile-search-trigger {
     display: flex;
   }
 
-  .rec-top-header.show-mobile-search .rec-mobile-search-section {
+  .can-top-header.show-mobile-search .can-mobile-search-section {
     display: flex;
     align-items: center;
     background: #f1f5f9;
@@ -572,7 +562,7 @@
     margin-top: 4px;
   }
 
-  .rec-mobile-search-section input {
+  .can-mobile-search-section input {
     flex: 1;
     border: none;
     background: transparent;

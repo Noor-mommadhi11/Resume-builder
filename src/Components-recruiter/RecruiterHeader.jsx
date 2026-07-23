@@ -4,13 +4,15 @@ import FiUser from "../assets/recruiter/FiUser.png";
 import SearchIcon from "../assets/recruiter/SearchIcon.png";
 import FiBell from "../assets/recruiter/FiBell.png";
 import settings from "../assets/recruiter/settings.png";
-import FiChevronDown from "../assets/recruiter/FiChevronDown.png";
+import FiChevronDown from "../assets/candidate/dropdownarrow.png";
+import logor from "../assets/candidate/logor.png";
 
 const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+  const [search, setSearch] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -27,41 +29,86 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
     };
   }, [dropdownOpen]);
 
+  // Search
+  const handleSearch = () => {
+    if (search.trim() === "") {
+      alert("Please enter role, skill or candidate");
+      return;
+    }
+    alert(`Searching for: ${search}`);
+  };
+
+  // Mobile Search Toggle
+  const toggleMobileSearch = () => {
+    setMobileSearchOpen((prev) => !prev);
+  };
+
   const handleLogout = () => {
-    // Add logout logic here
     console.log('Logging out...');
     setDropdownOpen(false);
   };
 
   const handleHelp = () => {
-    // Add help logic here
     console.log('Opening help...');
     setDropdownOpen(false);
   };
 
   return (
-    <header className='rec-top-header'>
-      <div className='rec-header-left'>
-        {/* Mobile hamburger toggle - only visible below 768px, controls the sidebar */}
-        <button
+    <header className={`rec-top-header ${mobileSearchOpen ? 'show-mobile-search' : ''}`}>
+       <div className='rec-header-left'>
+          <button
           className={`rec-mobile-toggle ${mobileMenuOpen ? 'open' : ''}`}
           onClick={() => setMobileMenuOpen(prev => !prev)}
-          aria-label="Toggle sidebar menu"
-          aria-expanded={mobileMenuOpen}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <span className='rec-dashboard-title-top'>AI Resume Builder & Screening System</span>
+        
+        {/* Logo Image */}
+        <img src={logor} alt="Logo" className="rec-logo-img" />
+      
+        {/* Title & Subtitle Container */}
+        <div className="rec-title-container">
+          <h3 className='rec-dashboard-title-top'>AI Resume Builder</h3>
+          <p className='rec-dashboard-subtitle'>& Screening System</p>
+        </div>
       </div>
+
       <div className='rec-search-wrapper'>
-        <img src={SearchIcon} width={18} height={18} alt="Search" className='rec-search-icon' />
-        <input type='text' placeholder='Search roles, skills, or companies...' />
+        <img
+          src={SearchIcon}
+          width={18}
+          height={18}
+          alt="Search"
+          className='rec-search-icon'
+          onClick={handleSearch}
+        />
+        <input
+          type='text'
+          placeholder='Search roles, skills, or candidates...'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
       </div>
+
       <div className='rec-user-profile'>
-        <div className='rec-header-icon'><img src={FiBell} width={20} height={20} alt="Notifications" /></div>
-        <div className='rec-header-icon'><img src={settings} width={20} height={20} alt="Settings" /></div>
+        {/* Mobile search trigger */}
+        <div className='rec-header-icon rec-mobile-search-trigger' onClick={toggleMobileSearch}>
+          <img src={SearchIcon} width={20} height={20} alt="Search Toggle" />
+        </div>
+
+        <div className='rec-header-icon'>
+          <img src={FiBell} width={20} height={20} alt="Notifications" />
+        </div>
+        <div className='rec-header-icon'>
+          <img src={settings} width={20} height={20} alt="Settings" />
+        </div>
         
         {/* User Avatar with Dropdown */}
         <div className='rec-avatar-dropdown-wrapper' ref={dropdownRef}>
@@ -87,20 +134,42 @@ const RecruiterHeader = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           {dropdownOpen && (
             <div className='rec-user-dropdown-menu'>
               <button className='rec-dropdown-item rec-help-btn' onClick={handleHelp}>
-             
                 Help
               </button>
               <div className='rec-dropdown-divider'></div>
               <button className='rec-dropdown-item rec-logout-btn' onClick={handleLogout}>
-               
                 Logout
               </button>
             </div>
           )}
         </div>
       </div>
+
+      {/* Expandable mobile search bar */}
+      <div className='rec-search-wrapper rec-mobile-search-section'>
+        <img
+          src={SearchIcon}
+          width={18}
+          height={18}
+          alt="Search"
+          className='rec-search-icon'
+          onClick={handleSearch}
+        />
+        <input
+          type='text'
+          placeholder='Search roles, skills, or candidates...'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
+      </div>
     </header>
   );
 };
 
 export default RecruiterHeader;
+

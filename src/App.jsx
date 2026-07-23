@@ -7,7 +7,6 @@ import ForgotPassword from './Components-login-candidate/Forgotpassword';
 import CreatePassword from './Components-login-candidate/CreatePassword';
 import EmailVerification from './Components-login-candidate/EmailVerification';
 import OtpVerification from './Components-login-candidate/OtpVerification';
-import LoginSuccess from './Components-login-candidate/LoginSuccess';
 import LandingPage from './Components-landingpage/LandingPage';
 import UserRegRecruiter from './Components-login-recruiter/Userregrecruiter';
 import UserRegCandidate from './Components-login-candidate/Userregcandidate';
@@ -17,6 +16,7 @@ import OtpRecruiter from './Components-login-recruiter/OtpRecruiter';
 import ForgotPasswordRe from './Components-login-recruiter/ForgotpasswordRe';
 import CreatePasswordRe from './Components-login-recruiter/CreatepasswordRe';
 import RecruiterDashboard from './Components-Recruiter/RecruiterDashboard'
+import CandidtateDashboard from './Components-Candidate/CandidateDashboard';
 
 
 
@@ -51,10 +51,6 @@ const router = createBrowserRouter(
       element: <OtpVerification /> 
     },
     {
-      path: '/Resume-builder/login/loginsuccess',
-      element: <LoginSuccess /> 
-    },
-    {
       path: '/Resume-builder/userregrecruiter',
       element: <UserRegRecruiter /> 
     },
@@ -81,7 +77,11 @@ const router = createBrowserRouter(
     {
       path: '/Resume-builder/dashboard/recruiter',
       element: <RecruiterDashboard />
-    }
+    },
+      {
+      path: '/Resume-builder/dashboard/candidate',
+      element: <CandidtateDashboard />
+    },
   ],
 );
 
